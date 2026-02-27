@@ -4,7 +4,10 @@ import {
     FaBriefcase,
     FaDollarSign,
     FaChartLine,
-    FaFilter
+    FaFilter,
+    FaMapMarkerAlt,
+    FaBuilding,
+    FaExternalLinkAlt
 } from 'react-icons/fa';
 import { jobRoles } from '../data/mockData';
 
@@ -123,6 +126,22 @@ const JobExplorer = () => {
                                 </span>
                             </div>
 
+                            {/* Company & Location */}
+                            <div className="flex items-center gap-4 mb-3 text-sm">
+                                {job.company && (
+                                    <div className="flex items-center text-gray-600 dark:text-gray-300">
+                                        <FaBuilding className="mr-1.5 text-primary-500" />
+                                        <span>{job.company}</span>
+                                    </div>
+                                )}
+                                {job.location && (
+                                    <div className="flex items-center text-gray-600 dark:text-gray-300">
+                                        <FaMapMarkerAlt className="mr-1.5 text-red-500" />
+                                        <span>{job.location}</span>
+                                    </div>
+                                )}
+                            </div>
+
                             {/* Stats */}
                             <div className="flex items-center gap-4 mb-4 text-sm">
                                 <div className="flex items-center text-gray-600 dark:text-gray-300">
@@ -158,7 +177,7 @@ const JobExplorer = () => {
                             </div>
 
                             {/* Preferred Skills */}
-                            <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
+                            <div className="mb-4">
                                 <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
                                     Preferred Skills
                                 </p>
@@ -173,6 +192,21 @@ const JobExplorer = () => {
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Apply Now Button */}
+                            {job.jobUrl && (
+                                <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
+                                    <a
+                                        href={job.jobUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-gradient-primary text-white font-medium rounded-xl hover:opacity-90 transition-all shadow-md hover:shadow-lg text-sm"
+                                    >
+                                        Apply Now
+                                        <FaExternalLinkAlt className="ml-2 text-xs" />
+                                    </a>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

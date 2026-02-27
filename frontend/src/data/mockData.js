@@ -59,7 +59,10 @@ export const jobRoles = [
     salary: '$120K - $180K',
     requiredSkills: ['React', 'TypeScript', 'CSS', 'Git', 'REST APIs', 'Testing'],
     preferredSkills: ['Next.js', 'GraphQL', 'AWS'],
-    growth: '+25%'
+    growth: '+25%',
+    company: 'Google',
+    location: 'Mountain View, CA',
+    jobUrl: 'https://careers.google.com/jobs/'
   },
   {
     id: 2,
@@ -69,7 +72,10 @@ export const jobRoles = [
     salary: '$130K - $200K',
     requiredSkills: ['JavaScript', 'Python', 'React', 'Node.js', 'SQL', 'Docker'],
     preferredSkills: ['AWS', 'Kubernetes', 'GraphQL'],
-    growth: '+30%'
+    growth: '+30%',
+    company: 'Microsoft',
+    location: 'Seattle, WA',
+    jobUrl: 'https://careers.microsoft.com/'
   },
   {
     id: 3,
@@ -79,7 +85,10 @@ export const jobRoles = [
     salary: '$140K - $220K',
     requiredSkills: ['Python', 'Machine Learning', 'SQL', 'Statistics', 'TensorFlow'],
     preferredSkills: ['Deep Learning', 'NLP', 'Spark'],
-    growth: '+35%'
+    growth: '+35%',
+    company: 'Meta',
+    location: 'Menlo Park, CA',
+    jobUrl: 'https://www.metacareers.com/'
   },
   {
     id: 4,
@@ -89,7 +98,10 @@ export const jobRoles = [
     salary: '$110K - $170K',
     requiredSkills: ['Linux', 'Docker', 'Kubernetes', 'AWS', 'CI/CD', 'Python'],
     preferredSkills: ['Terraform', 'Ansible', 'GCP'],
-    growth: '+20%'
+    growth: '+20%',
+    company: 'Amazon',
+    location: 'Seattle, WA',
+    jobUrl: 'https://www.amazon.jobs/'
   },
   {
     id: 5,
@@ -99,7 +111,10 @@ export const jobRoles = [
     salary: '$120K - $190K',
     requiredSkills: ['Agile', 'Data Analysis', 'User Research', 'Roadmapping', 'SQL'],
     preferredSkills: ['A/B Testing', 'Figma', 'JIRA'],
-    growth: '+15%'
+    growth: '+15%',
+    company: 'Apple',
+    location: 'Cupertino, CA',
+    jobUrl: 'https://jobs.apple.com/'
   },
   {
     id: 6,
@@ -108,8 +123,11 @@ export const jobRoles = [
     demand: 'Medium',
     salary: '$90K - $150K',
     requiredSkills: ['Figma', 'User Research', 'Prototyping', 'Wireframing', 'Adobe XD'],
-    preferredSkills: ['HTMLअनुसार', 'CSS', 'Motion Design'],
-    growth: '+18%'
+    preferredSkills: ['HTML', 'CSS', 'Motion Design'],
+    growth: '+18%',
+    company: 'Netflix',
+    location: 'Los Gatos, CA',
+    jobUrl: 'https://jobs.netflix.com/'
   },
   {
     id: 7,
@@ -119,7 +137,10 @@ export const jobRoles = [
     salary: '$125K - $190K',
     requiredSkills: ['Python', 'Java', 'SQL', 'REST APIs', 'Microservices', 'Docker'],
     preferredSkills: ['Kubernetes', 'GraphQL', 'Redis'],
-    growth: '+22%'
+    growth: '+22%',
+    company: 'Stripe',
+    location: 'San Francisco, CA',
+    jobUrl: 'https://stripe.com/jobs/'
   },
   {
     id: 8,
@@ -129,7 +150,10 @@ export const jobRoles = [
     salary: '$150K - $250K',
     requiredSkills: ['Python', 'TensorFlow', 'PyTorch', 'MLOps', 'Deep Learning'],
     preferredSkills: ['Computer Vision', 'NLP', 'CUDA'],
-    growth: '+40%'
+    growth: '+40%',
+    company: 'OpenAI',
+    location: 'San Francisco, CA',
+    jobUrl: 'https://openai.com/careers/'
   }
 ];
 
@@ -144,7 +168,11 @@ export const careerRoadmaps = [
         title: 'Master HTML, CSS & JavaScript',
         description: 'Build strong fundamentals in web technologies',
         duration: '2-3 months',
-        resources: ['freeCodeCamp', 'MDN Web Docs', 'JavaScript.info'],
+        resources: [
+          { name: 'freeCodeCamp', url: 'https://www.freecodecamp.org/' },
+          { name: 'MDN Web Docs', url: 'https://developer.mozilla.org/' },
+          { name: 'JavaScript.info', url: 'https://javascript.info/' }
+        ],
         skills: ['HTML5', 'CSS3', 'JavaScript ES6+']
       },
       {
@@ -152,7 +180,11 @@ export const careerRoadmaps = [
         title: 'Learn React Framework',
         description: 'Master component-based architecture',
         duration: '2-3 months',
-        resources: ['React Docs', 'Scrimba', 'Egghead.io'],
+        resources: [
+          { name: 'React Docs', url: 'https://react.dev/' },
+          { name: 'Scrimba', url: 'https://scrimba.com/' },
+          { name: 'Egghead.io', url: 'https://egghead.io/' }
+        ],
         skills: ['React', 'JSX', 'State Management', 'Hooks']
       },
       {
@@ -160,7 +192,10 @@ export const careerRoadmaps = [
         title: 'TypeScript & Advanced Patterns',
         description: 'Add type safety and learn advanced patterns',
         duration: '1-2 months',
-        resources: ['TypeScript Handbook', 'Total TypeScript'],
+        resources: [
+          { name: 'TypeScript Handbook', url: 'https://www.typescriptlang.org/docs/handbook/' },
+          { name: 'Total TypeScript', url: 'https://totaltypescript.com/' }
+        ],
         skills: ['TypeScript', 'Design Patterns', 'Testing']
       },
       {
@@ -168,7 +203,11 @@ export const careerRoadmaps = [
         title: 'Build Portfolio Projects',
         description: 'Create real-world projects to showcase skills',
         duration: '2-3 months',
-        resources: ['GitHub', 'Vercel', 'Netlify'],
+        resources: [
+          { name: 'GitHub', url: 'https://github.com/' },
+          { name: 'Vercel', url: 'https://vercel.com/' },
+          { name: 'Netlify', url: 'https://www.netlify.com/' }
+        ],
         skills: ['Project Management', 'Deployment', 'Git']
       },
       {
@@ -176,7 +215,10 @@ export const careerRoadmaps = [
         title: 'Apply for Jobs & Interview Prep',
         description: 'Prepare for technical interviews',
         duration: '1-2 months',
-        resources: ['LeetCode', 'Frontend Interview Handbook'],
+        resources: [
+          { name: 'LeetCode', url: 'https://leetcode.com/' },
+          { name: 'Frontend Interview Handbook', url: 'https://www.frontendinterviewhandbook.com/' }
+        ],
         skills: ['Problem Solving', 'System Design']
       }
     ]
@@ -190,7 +232,10 @@ export const careerRoadmaps = [
         title: 'Frontend Fundamentals',
         description: 'Master HTML, CSS, JavaScript and React',
         duration: '3-4 months',
-        resources: ['freeCodeCamp', 'React Docs'],
+        resources: [
+          { name: 'freeCodeCamp', url: 'https://www.freecodecamp.org/' },
+          { name: 'React Docs', url: 'https://react.dev/' }
+        ],
         skills: ['HTML', 'CSS', 'JavaScript', 'React']
       },
       {
@@ -198,7 +243,10 @@ export const careerRoadmaps = [
         title: 'Backend Development',
         description: 'Learn Node.js, Express and databases',
         duration: '3-4 months',
-        resources: ['Node.js Docs', 'MongoDB University'],
+        resources: [
+          { name: 'Node.js Docs', url: 'https://nodejs.org/docs/latest/api/' },
+          { name: 'MongoDB University', url: 'https://university.mongodb.com/' }
+        ],
         skills: ['Node.js', 'Express', 'MongoDB', 'SQL']
       },
       {
@@ -206,7 +254,10 @@ export const careerRoadmaps = [
         title: 'API Design & Architecture',
         description: 'Build RESTful and GraphQL APIs',
         duration: '2 months',
-        resources: ['GraphQL Docs', 'REST API Tutorial'],
+        resources: [
+          { name: 'GraphQL Docs', url: 'https://graphql.org/learn/' },
+          { name: 'REST API Tutorial', url: 'https://restfulapi.net/' }
+        ],
         skills: ['REST APIs', 'GraphQL', 'Authentication']
       },
       {
@@ -214,7 +265,10 @@ export const careerRoadmaps = [
         title: 'DevOps & Cloud',
         description: 'Learn deployment and cloud services',
         duration: '2-3 months',
-        resources: ['AWS Training', 'Docker Docs'],
+        resources: [
+          { name: 'AWS Training', url: 'https://aws.amazon.com/training/' },
+          { name: 'Docker Docs', url: 'https://docs.docker.com/' }
+        ],
         skills: ['Docker', 'AWS', 'CI/CD', 'Kubernetes']
       },
       {
@@ -222,7 +276,11 @@ export const careerRoadmaps = [
         title: 'Full Stack Projects',
         description: 'Build complete applications end-to-end',
         duration: '3-4 months',
-        resources: ['GitHub', 'Vercel', 'Railway'],
+        resources: [
+          { name: 'GitHub', url: 'https://github.com/' },
+          { name: 'Vercel', url: 'https://vercel.com/' },
+          { name: 'Railway', url: 'https://railway.app/' }
+        ],
         skills: ['Full Stack Development', 'System Design']
       }
     ]
@@ -236,7 +294,10 @@ export const careerRoadmaps = [
         title: 'Python & Statistics',
         description: 'Master Python programming and statistical concepts',
         duration: '3 months',
-        resources: ['Python.org', 'Khan Academy Statistics'],
+        resources: [
+          { name: 'Python.org', url: 'https://www.python.org/doc/' },
+          { name: 'Khan Academy Statistics', url: 'https://www.khanacademy.org/math/statistics-probability' }
+        ],
         skills: ['Python', 'Statistics', 'NumPy', 'Pandas']
       },
       {
@@ -244,7 +305,10 @@ export const careerRoadmaps = [
         title: 'Data Analysis & Visualization',
         description: 'Learn to analyze and visualize data effectively',
         duration: '2 months',
-        resources: ['Kaggle', 'DataCamp'],
+        resources: [
+          { name: 'Kaggle', url: 'https://www.kaggle.com/learn' },
+          { name: 'DataCamp', url: 'https://www.datacamp.com/' }
+        ],
         skills: ['Matplotlib', 'Seaborn', 'EDA', 'Tableau']
       },
       {
@@ -252,7 +316,10 @@ export const careerRoadmaps = [
         title: 'Machine Learning',
         description: 'Understand and implement ML algorithms',
         duration: '3-4 months',
-        resources: ['Coursera ML Course', 'Fast.ai'],
+        resources: [
+          { name: 'Coursera ML Course', url: 'https://www.coursera.org/learn/machine-learning' },
+          { name: 'Fast.ai', url: 'https://course.fast.ai/' }
+        ],
         skills: ['Scikit-learn', 'Regression', 'Classification', 'Clustering']
       },
       {
@@ -260,7 +327,10 @@ export const careerRoadmaps = [
         title: 'Deep Learning & NLP',
         description: 'Explore neural networks and NLP',
         duration: '3 months',
-        resources: ['DeepLearning.AI', 'Hugging Face'],
+        resources: [
+          { name: 'DeepLearning.AI', url: 'https://www.deeplearning.ai/' },
+          { name: 'Hugging Face', url: 'https://huggingface.co/learn' }
+        ],
         skills: ['TensorFlow', 'PyTorch', 'NLP', 'Transformers']
       },
       {
@@ -268,7 +338,10 @@ export const careerRoadmaps = [
         title: 'MLOps & Deployment',
         description: 'Learn to deploy and maintain ML models',
         duration: '2 months',
-        resources: ['MLflow', 'AWS SageMaker'],
+        resources: [
+          { name: 'MLflow', url: 'https://mlflow.org/docs/latest/index.html' },
+          { name: 'AWS SageMaker', url: 'https://aws.amazon.com/sagemaker/' }
+        ],
         skills: ['MLOps', 'Model Deployment', 'AWS']
       }
     ]

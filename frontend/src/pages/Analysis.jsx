@@ -1,23 +1,28 @@
 import React, { useState, useRef } from 'react';
-import { 
-  FaUpload, 
-  FaFileAlt, 
-  FaBriefcase, 
-  FaChartBar, 
+import {
+  FaUpload,
+  FaFileAlt,
+  FaBriefcase,
+  FaChartBar,
   FaBookOpen,
   FaArrowRight,
   FaTimes,
   FaCheck,
   FaExclamationTriangle,
   FaRedo,
-  FaDownload
+  FaDownload,
+  FaSave,
+  FaCommentDots
 } from 'react-icons/fa';
 import LoadingSpinner from '../components/LoadingSpinner';
 import SkillCard from '../components/SkillCard';
 import RecommendationCard from '../components/RecommendationCard';
+import FeedbackModal from '../components/FeedbackModal';
 import { analyzeResume, analyzeText, getRecommendations, savePDFReport } from '../services/api';
+import { useAnalysis } from '../context/AnalysisContext';
 
 const Analysis = () => {
+  const { addAnalysis } = useAnalysis();
   const [step, setStep] = useState(1); // 1: Input, 2: Loading, 3: Results
   const [resumeFile, setResumeFile] = useState(null);
   const [resumeText, setResumeText] = useState('');
@@ -28,22 +33,65 @@ const Analysis = () => {
   const [recommendations, setRecommendations] = useState([]);
   const [loadingMessage, setLoadingMessage] = useState('');
   const [downloadingPDF, setDownloadingPDF] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
+  const dropZoneRef = useRef(null);
+
+  const validateFile = (file) => {
+    const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+    const validExtensions = ['.pdf', '.docx', '.txt'];
+    const fileExtension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+    
+    if (!validTypes.includes(file.type) && !validExtensions.includes(fileExtension)) {
+      setError('Invalid file type. Please upload a PDF, DOCX, or TXT file.');
+      return false;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setError('File too large. Maximum size is 5MB.');
+      return false;
+    }
+    return true;
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
-      if (!validTypes.includes(file.type)) {
-        setError('Invalid file type. Please upload a PDF, DOCX, or TXT file.');
-        return;
-      }
-      if (file.size > 5 * 1024 * 1024) {
-        setError('File too large. Maximum size is 5MB.');
-        return;
-      }
+    if (file && validateFile(file)) {
       setResumeFile(file);
       setError('');
+    }
+  };
+
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const files = e.dataTransfer.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      if (validateFile(file)) {
+        setResumeFile(file);
+        setError('');
+      }
     }
   };
 
@@ -101,19 +149,6 @@ const Analysis = () => {
     }
   };
 
-  const handleReset = () => {
-    setStep(1);
-    setResumeFile(null);
-    setResumeText('');
-    setJobDescription('');
-    setError('');
-    setResults(null);
-    setRecommendations([]);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
   const handleDownloadPDF = async () => {
     setDownloadingPDF(true);
     try {
@@ -123,6 +158,47 @@ const Analysis = () => {
       setError('Failed to generate PDF report. Please try again.');
     } finally {
       setDownloadingPDF(false);
+    }
+  };
+
+  const handleSaveAnalysis = () => {
+    if (results && !saved) {
+      // Extract job title from job description
+      const extractJobTitle = (jd) => {
+        const lines = jd.split('\n');
+        if (lines.length > 0) {
+          const firstLine = lines[0].trim();
+          if (firstLine.length < 100 && firstLine.length > 3) {
+            return firstLine;
+          }
+        }
+        return 'Job Position';
+      };
+
+      addAnalysis({
+        job_title: extractJobTitle(jobDescription),
+        company: 'Analysis',
+        match_percentage: results.match_percentage,
+        matched_skills: results.matched_skills || [],
+        missing_skills: results.missing_skills || [],
+        classification: results.classification,
+        recommendations_count: recommendations.length
+      });
+      setSaved(true);
+    }
+  };
+
+  const handleReset = () => {
+    setStep(1);
+    setResumeFile(null);
+    setResumeText('');
+    setJobDescription('');
+    setError('');
+    setResults(null);
+    setRecommendations([]);
+    setSaved(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
   };
 
@@ -146,9 +222,9 @@ const Analysis = () => {
 
   // Render results
   if (step === 3 && results) {
-    const { 
-      match_percentage, 
-      matched_skills = [], 
+    const {
+      match_percentage,
+      matched_skills = [],
       missing_skills = [],
       classification = 'Unknown',
       confidence = 0
@@ -231,9 +307,26 @@ const Analysis = () => {
               {/* Actions */}
               <div className="flex flex-col gap-2">
                 <button
+                  onClick={handleSaveAnalysis}
+                  disabled={saved}
+                  className={`inline-flex items-center justify-center ${saved ? 'bg-green-600 cursor-not-allowed' : 'btn-primary'}`}
+                >
+                  {saved ? (
+                    <>
+                      <FaCheck className="mr-2" />
+                      Saved to Reports
+                    </>
+                  ) : (
+                    <>
+                      <FaSave className="mr-2" />
+                      Save to Reports
+                    </>
+                  )}
+                </button>
+                <button
                   onClick={handleDownloadPDF}
                   disabled={downloadingPDF}
-                  className="btn-primary inline-flex items-center justify-center"
+                  className="btn-secondary inline-flex items-center justify-center"
                 >
                   {downloadingPDF ? (
                     <>
@@ -246,6 +339,13 @@ const Analysis = () => {
                       Download PDF Report
                     </>
                   )}
+                </button>
+                <button
+                  onClick={() => setShowFeedbackModal(true)}
+                  className="btn-secondary inline-flex items-center justify-center bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800 hover:bg-purple-100 dark:hover:bg-purple-900/30"
+                >
+                  <FaCommentDots className="mr-2" />
+                  Give Feedback
                 </button>
                 <button
                   onClick={handleReset}
@@ -312,6 +412,13 @@ const Analysis = () => {
               </p>
             </div>
           )}
+
+          {/* Feedback Modal */}
+          <FeedbackModal
+            isOpen={showFeedbackModal}
+            onClose={() => setShowFeedbackModal(false)}
+            matchPercentage={match_percentage}
+          />
         </div>
       </div>
     );
@@ -349,21 +456,19 @@ const Analysis = () => {
             <div className="flex gap-2 mb-4">
               <button
                 onClick={() => setInputMode('file')}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  inputMode === 'file'
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${inputMode === 'file'
                     ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                }`}
+                  }`}
               >
                 Upload File
               </button>
               <button
                 onClick={() => setInputMode('text')}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  inputMode === 'text'
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${inputMode === 'text'
                     ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                }`}
+                  }`}
               >
                 Paste Text
               </button>
@@ -374,8 +479,17 @@ const Analysis = () => {
               <div>
                 {!resumeFile ? (
                   <div
+                    ref={dropZoneRef}
                     onClick={() => fileInputRef.current?.click()}
-                    className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-8 text-center cursor-pointer hover:border-primary-400 dark:hover:border-primary-500 hover:bg-primary-50/50 dark:hover:bg-gray-700/50 transition-all"
+                    onDragEnter={handleDragEnter}
+                    onDragLeave={handleDragLeave}
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
+                    className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
+                      isDragging 
+                        ? 'border-primary-500 bg-primary-100/50 dark:bg-primary-900/30 scale-[1.02]' 
+                        : 'border-gray-300 dark:border-gray-600 hover:border-primary-400 dark:hover:border-primary-500 hover:bg-primary-50/50 dark:hover:bg-gray-700/50'
+                    }`}
                   >
                     <input
                       type="file"
@@ -384,9 +498,9 @@ const Analysis = () => {
                       accept=".pdf,.docx,.txt"
                       className="hidden"
                     />
-                    <FaUpload className="mx-auto text-4xl text-gray-400 dark:text-gray-500 mb-4" />
+                    <FaUpload className={`mx-auto text-4xl mb-4 transition-colors ${isDragging ? 'text-primary-500 dark:text-primary-400' : 'text-gray-400 dark:text-gray-500'}`} />
                     <p className="text-gray-600 dark:text-gray-300 font-medium mb-2">
-                      Click to upload or drag and drop
+                      {isDragging ? 'Drop your file here' : 'Click to upload or drag and drop'}
                     </p>
                     <p className="text-sm text-gray-400 dark:text-gray-500">
                       PDF, DOCX, or TXT (max 5MB)

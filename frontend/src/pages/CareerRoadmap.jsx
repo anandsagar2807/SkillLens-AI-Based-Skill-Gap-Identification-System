@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+    import React, { useState } from 'react';
 import {
     FaRoad,
     FaChevronDown,
@@ -6,7 +6,8 @@ import {
     FaClock,
     FaBook,
     FaLightbulb,
-    FaCheckCircle
+    FaCheckCircle,
+    FaExternalLinkAlt
 } from 'react-icons/fa';
 import { careerRoadmaps } from '../data/mockData';
 
@@ -153,13 +154,18 @@ const CareerRoadmap = () => {
                                                 </h4>
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                                                     {step.resources.map((resource, idx) => (
-                                                        <div
+                                                        <a
                                                             key={idx}
-                                                            className="flex items-center gap-2 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                                            href={resource.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center gap-2 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-700 dark:hover:text-primary-400 transition-colors group"
+                                                            onClick={(e) => e.stopPropagation()}
                                                         >
                                                             <div className="w-2 h-2 bg-primary-500 rounded-full" />
-                                                            {resource}
-                                                        </div>
+                                                            <span className="flex-1">{resource.name}</span>
+                                                            <FaExternalLinkAlt className="text-xs text-gray-400 group-hover:text-primary-500 transition-colors" />
+                                                        </a>
                                                     ))}
                                                 </div>
                                             </div>

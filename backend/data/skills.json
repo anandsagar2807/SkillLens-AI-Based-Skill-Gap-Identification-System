@@ -1,22 +1,75 @@
 {
   "technical_skills": [
     "python", "java", "javascript", "typescript", "c++", "c#", "ruby", "go", "rust", "kotlin",
+    "swift", "objective c", "scala", "perl", "php", "r", "matlab", "julia", "haskell", "erlang",
+    "clojure", "elixir", "f#", "visual basic", "cobol", "fortran", "assembly", "lua", "dart",
+    
     "react", "angular", "vue", "node.js", "express", "django", "flask", "spring", "fastapi",
-    "html", "css", "sass", "less", "tailwind", "bootstrap", "jquery",
+    "next.js", "nuxt.js", "gatsby", "svelte", "ember", "backbone", "meteor", "nest.js",
+    "ruby on rails", "laravel", "symfony", "codeigniter", "asp.net", "blazor", "sails.js",
+    
+    "html", "css", "sass", "less", "tailwind", "bootstrap", "jquery", "webpack", "vite",
+    "babel", "esbuild", "rollup", "parcel", "gulp", "grunt", "postcss",
+    
     "sql", "mysql", "postgresql", "mongodb", "redis", "elasticsearch", "cassandra", "oracle",
+    "sql server", "sqlite", "mariadb", "dynamodb", "couchdb", "neo4j", "firestore",
+    "cosmos db", "couchbase", "hbase", "hive", "presto", "trino", "clickhouse", "snowflake",
+    "bigquery", "redshift", "databricks", "airflow", "dbt", "supabase",
+    
     "aws", "azure", "gcp", "docker", "kubernetes", "jenkins", "ci/cd", "terraform", "ansible",
+    "puppet", "chef", "saltstack", "cloudformation", "helm", "argo cd", "flux", "spinnaker",
+    "circleci", "travisci", "gitlab ci", "github actions", "teamcity", "bamboo", "azure devops",
+    
     "machine learning", "deep learning", "neural networks", "tensorflow", "pytorch", "keras",
     "nlp", "natural language processing", "computer vision", "opencv", "data science",
     "data analysis", "pandas", "numpy", "scikit-learn", "matplotlib", "seaborn",
-    "git", "github", "gitlab", "bitbucket", "jira", "agile", "scrum",
-    "rest api", "graphql", "microservices", "api design", "swagger",
-    "linux", "unix", "bash", "shell scripting", "windows server",
-    "unit testing", "integration testing", "selenium", "jest", "pytest",
-    "security", "cybersecurity", "encryption", "oauth", "jwt",
-    "blockchain", "cryptocurrency", "smart contracts",
+    "jupyter", "notebook", "xgboost", "lightgbm", "catboost", "hugging face", "langchain",
+    "openai", "chatgpt", "gpt", "llm", "generative ai", "stable diffusion", "transformers",
+    "hadoop", "spark", "kafka", "flink", "storm", "beam", "flume", "sqoop",
+    
+    "git", "github", "gitlab", "bitbucket", "jira", "agile", "scrum", "kanban",
+    "confluence", "trello", "asana", "monday", "notion", "linear", "clickup",
+    
+    "rest api", "graphql", "microservices", "api design", "swagger", "openapi",
+    "grpc", "soap", "websocket", "socket.io", "webhooks", "oauth", "jwt", "oidc",
+    "rabbitmq", "activemq", "zeromq", "mqtt", "amqp", "kafka streams",
+    
+    "linux", "unix", "bash", "shell scripting", "windows server", "powershell",
+    "macos", "ubuntu", "centos", "red hat", "debian", "fedora", "arch linux",
+    
+    "unit testing", "integration testing", "selenium", "jest", "pytest", "cypress",
+    "playwright", "mocha", "jasmine", "karma", "junit", "testng", "robot framework",
+    "cucumber", "gherkin", "load testing", "jmeter", "gatling", "locust", "k6",
+    
+    "security", "cybersecurity", "encryption", "oauth", "jwt", "ssl", "tls",
+    "penetration testing", "vulnerability assessment", "owasp", "security auditing",
+    "identity management", "access control", "firewall", "siem", "iam",
+    
+    "blockchain", "cryptocurrency", "smart contracts", "ethereum", "solidity",
+    "hyperledger", "web3", "nft", "defi", "bitcoin", "solana", "polygon",
+    
     "mobile development", "android", "ios", "react native", "flutter", "swift",
+    "kotlin multiplatform", "xamarin", "ionic", "cordova", "capacitor",
+    
     "data structures", "algorithms", "system design", "design patterns",
-    "devops", "sre", "monitoring", "logging", "prometheus", "grafana"
+    "object-oriented programming", "functional programming", "oop", "solid principles",
+    "clean architecture", "hexagonal architecture", "ddd", "domain-driven design",
+    "microservices architecture", "serverless", "event-driven architecture",
+    
+    "devops", "sre", "monitoring", "logging", "prometheus", "grafana", "datadog",
+    "new relic", "splunk", "elk stack", "jaeger", "zipkin", "opentelemetry",
+    "istio", "envoy", "linkerd", "consul", "etcd", "zookeeper",
+    
+    "api gateway", "kong", "nginx", "apache", "haproxy", "traefik",
+    "load balancing", "cdn", "cloudflare", "fastly", "akamai",
+    
+    "containerization", "virtualization", "vmware", "virtualbox", "kvm",
+    "lxc", "podman", "containerd", "cri-o",
+    
+    "infrastructure as code", "iac", "pulumi", "cdktf", "crossplane", "gitops",
+    
+    "networking", "tcp/ip", "dns", "dhcp", "vpn", "ipsec", "bgp", "ospf",
+    "subnetting", "vlan", "vxlan", "sdn"
   ],
   "soft_skills": [
     "leadership", "communication", "teamwork", "problem solving", "critical thinking",
@@ -24,13 +77,72 @@
     "collaboration", "presentation", "negotiation", "conflict resolution", "decision making",
     "analytical skills", "attention to detail", "multitasking", "stress management",
     "interpersonal skills", "emotional intelligence", "flexibility", "motivation",
-    "organization", "planning", "strategic thinking", "mentoring", "coaching"
+    "organization", "planning", "strategic thinking", "mentoring", "coaching",
+    
+    "active listening", "written communication", "verbal communication", "public speaking",
+    "storytelling", "persuasion", "influence", "networking", "relationship building",
+    
+    "team building", "delegation", "empowerment", "feedback", "performance management",
+    "conflict management", "mediation", "facilitation", "consensus building",
+    
+    "creative thinking", "design thinking", "ideation", "brainstorming",
+    
+    "self-motivation", "self-awareness", "self-regulation", "empathy", "social skills",
+    "resilience", "perseverance", "growth mindset", "continuous learning",
+    
+    "priority setting", "goal setting", "task management", "deadline management",
+    "resource allocation", "risk management", "quality management",
+    
+    "customer focus", "client management", "stakeholder management", "service orientation",
+    "customer satisfaction", "user experience", "user advocacy",
+    
+    "change management", "agile mindset", "lean thinking", "process improvement",
+    "continuous improvement", "root cause analysis", "troubleshooting",
+    
+    "cultural awareness", "diversity and inclusion", "global mindset",
+    
+    "work-life balance", "professional development", "career planning"
   ],
   "domain_skills": [
     "finance", "banking", "healthcare", "e-commerce", "retail", "manufacturing",
     "logistics", "supply chain", "marketing", "sales", "customer service",
     "human resources", "education", "legal", "insurance", "real estate",
     "telecommunications", "media", "entertainment", "gaming", "automotive",
-    "aerospace", "energy", "utilities", "government", "nonprofit"
+    "aerospace", "energy", "utilities", "government", "nonprofit",
+    
+    "fintech", "insurtech", "regtech", "healthtech", "medtech", "biotech",
+    "edtech", "legaltech", "proptech", "agritech", "foodtech", "cleantech",
+    
+    "investment banking", "private equity", "venture capital", "hedge funds",
+    "asset management", "wealth management", "financial planning", "risk assessment",
+    "compliance", "regulatory affairs", "audit", "accounting",
+    
+    "clinical research", "pharmaceuticals", "medical devices", "electronic health records",
+    "telemedicine", "digital health", "patient care", "health informatics",
+    
+    "digital marketing", "content marketing", "social media marketing", "seo", "sem",
+    "email marketing", "affiliate marketing", "growth hacking", "conversion optimization",
+    "brand management", "market research", "consumer behavior", "analytics",
+    
+    "enterprise sales", "b2b sales", "b2c sales", "salesforce", "crm", "lead generation",
+    "account management", "business development", "partnership management",
+    
+    "user experience", "ux design", "ui design", "product design", "graphic design",
+    "interaction design", "information architecture", "user research", "usability testing",
+    
+    "product management", "product strategy", "roadmap planning", "feature prioritization",
+    "product launch", "go-to-market strategy", "product marketing",
+    
+    "operations management", "supply chain management", "inventory management",
+    "procurement", "vendor management", "quality assurance", "six sigma", "lean",
+    
+    "data engineering", "data architecture", "data modeling", "data governance",
+    "data quality", "master data management", "etl", "data pipeline", "data warehouse",
+    
+    "artificial intelligence", "ml ops", "model deployment", "feature engineering",
+    "model training", "model evaluation", "experiment tracking", "ai ethics",
+    
+    "iot", "internet of things", "edge computing", "embedded systems", "robotics",
+    "automation", "control systems", "industrial automation"
   ]
 }
