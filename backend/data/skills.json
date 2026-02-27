@@ -1,0 +1,36 @@
+{
+  "technical_skills": [
+    "python", "java", "javascript", "typescript", "c++", "c#", "ruby", "go", "rust", "kotlin",
+    "react", "angular", "vue", "node.js", "express", "django", "flask", "spring", "fastapi",
+    "html", "css", "sass", "less", "tailwind", "bootstrap", "jquery",
+    "sql", "mysql", "postgresql", "mongodb", "redis", "elasticsearch", "cassandra", "oracle",
+    "aws", "azure", "gcp", "docker", "kubernetes", "jenkins", "ci/cd", "terraform", "ansible",
+    "machine learning", "deep learning", "neural networks", "tensorflow", "pytorch", "keras",
+    "nlp", "natural language processing", "computer vision", "opencv", "data science",
+    "data analysis", "pandas", "numpy", "scikit-learn", "matplotlib", "seaborn",
+    "git", "github", "gitlab", "bitbucket", "jira", "agile", "scrum",
+    "rest api", "graphql", "microservices", "api design", "swagger",
+    "linux", "unix", "bash", "shell scripting", "windows server",
+    "unit testing", "integration testing", "selenium", "jest", "pytest",
+    "security", "cybersecurity", "encryption", "oauth", "jwt",
+    "blockchain", "cryptocurrency", "smart contracts",
+    "mobile development", "android", "ios", "react native", "flutter", "swift",
+    "data structures", "algorithms", "system design", "design patterns",
+    "devops", "sre", "monitoring", "logging", "prometheus", "grafana"
+  ],
+  "soft_skills": [
+    "leadership", "communication", "teamwork", "problem solving", "critical thinking",
+    "time management", "project management", "adaptability", "creativity", "innovation",
+    "collaboration", "presentation", "negotiation", "conflict resolution", "decision making",
+    "analytical skills", "attention to detail", "multitasking", "stress management",
+    "interpersonal skills", "emotional intelligence", "flexibility", "motivation",
+    "organization", "planning", "strategic thinking", "mentoring", "coaching"
+  ],
+  "domain_skills": [
+    "finance", "banking", "healthcare", "e-commerce", "retail", "manufacturing",
+    "logistics", "supply chain", "marketing", "sales", "customer service",
+    "human resources", "education", "legal", "insurance", "real estate",
+    "telecommunications", "media", "entertainment", "gaming", "automotive",
+    "aerospace", "energy", "utilities", "government", "nonprofit"
+  ]
+}

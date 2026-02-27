@@ -1,0 +1,364 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Python for Data Science and Machine Learning Bootcamp",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp/",
+      "skills": ["python", "machine learning", "data science", "pandas", "numpy", "matplotlib", "scikit-learn"],
+      "duration": "44 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 2,
+      "title": "The Web Developer Bootcamp",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/the-web-developer-bootcamp/",
+      "skills": ["html", "css", "javascript", "node.js", "react", "mongodb"],
+      "duration": "63 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 3,
+      "title": "React - The Complete Guide",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/react-the-complete-guide/",
+      "skills": ["react", "javascript", "typescript", "node.js", "rest api"],
+      "duration": "48 hours",
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "title": "AWS Certified Solutions Architect",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/aws-certified-solutions-architect-associate/",
+      "skills": ["aws", "cloud computing", "devops", "ci/cd"],
+      "duration": "28 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 5,
+      "title": "Docker Mastery: with Kubernetes + Swarm",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/docker-mastery/",
+      "skills": ["docker", "kubernetes", "devops", "ci/cd"],
+      "duration": "20 hours",
+      "rating": 4.8
+    },
+    {
+      "id": 6,
+      "title": "Machine Learning A-Z: AI, Python & R",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/machinelearning/",
+      "skills": ["machine learning", "python", "deep learning", "tensorflow"],
+      "duration": "44 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 7,
+      "title": "Deep Learning Specialization",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/specializations/deep-learning",
+      "skills": ["deep learning", "neural networks", "tensorflow", "pytorch", "machine learning"],
+      "duration": "5 months",
+      "rating": 4.9
+    },
+    {
+      "id": 8,
+      "title": "Natural Language Processing Specialization",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/specializations/natural-language-processing",
+      "skills": ["nlp", "natural language processing", "deep learning", "machine learning"],
+      "duration": "4 months",
+      "rating": 4.7
+    },
+    {
+      "id": 9,
+      "title": "Full Stack Web Development",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/professional-certificates/full-stack-web-development",
+      "skills": ["html", "css", "javascript", "react", "node.js", "mongodb", "sql"],
+      "duration": "7 months",
+      "rating": 4.6
+    },
+    {
+      "id": 10,
+      "title": "Data Engineering Professional Certificate",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/professional-certificates/ibm-data-engineer",
+      "skills": ["python", "sql", "postgresql", "mongodb", "elasticsearch", "data science"],
+      "duration": "15 months",
+      "rating": 4.5
+    },
+    {
+      "id": 11,
+      "title": "Kubernetes for Developers",
+      "platform": "Pluralsight",
+      "link": "https://www.pluralsight.com/courses/kubernetes-developers-core-concepts",
+      "skills": ["kubernetes", "docker", "devops", "cloud computing"],
+      "duration": "6 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 12,
+      "title": "Java Programming Masterclass",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/java-the-complete-java-developer-course/",
+      "skills": ["java", "spring", "sql", "data structures", "algorithms"],
+      "duration": "80 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 13,
+      "title": "Spring Boot Microservices",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/spring-boot-microservices/",
+      "skills": ["java", "spring", "microservices", "docker", "kubernetes"],
+      "duration": "42 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 14,
+      "title": "Angular - The Complete Guide",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/the-complete-guide-to-angular-2/",
+      "skills": ["angular", "typescript", "javascript", "html", "css"],
+      "duration": "44 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 15,
+      "title": "Node.js - The Complete Guide",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/nodejs-the-complete-guide/",
+      "skills": ["node.js", "javascript", "express", "mongodb", "sql"],
+      "duration": "38 hours",
+      "rating": 4.8
+    },
+    {
+      "id": 16,
+      "title": "SQL Bootcamp",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/the-complete-sql-bootcamp/",
+      "skills": ["sql", "postgresql", "mysql", "data analysis"],
+      "duration": "9 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 17,
+      "title": "MongoDB - The Complete Developer's Guide",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/mongodb-the-complete-developers-guide/",
+      "skills": ["mongodb", "nosql", "node.js", "javascript"],
+      "duration": "12 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 18,
+      "title": "Terraform: Up & Running",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/terraform-infrastructure-automation/",
+      "skills": ["terraform", "aws", "azure", "devops", "ci/cd"],
+      "duration": "8 hours",
+      "rating": 4.5
+    },
+    {
+      "id": 19,
+      "title": "Computer Vision A-Z",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/computer-vision-a-z/",
+      "skills": ["computer vision", "opencv", "python", "deep learning"],
+      "duration": "15 hours",
+      "rating": 4.5
+    },
+    {
+      "id": 20,
+      "title": "Cybersecurity Fundamentals",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/learn/cybersecurity-fundamentals",
+      "skills": ["security", "cybersecurity", "encryption", "networking"],
+      "duration": "18 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 21,
+      "title": "Blockchain A-Z: Learn Blockchain, Crypto & Smart Contracts",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/build-your-blockchain-az/",
+      "skills": ["blockchain", "cryptocurrency", "smart contracts", "python"],
+      "duration": "16 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 22,
+      "title": "Flutter & Dart - The Complete Guide",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/learn-flutter-dart-complete-guide/",
+      "skills": ["flutter", "dart", "mobile development", "android", "ios"],
+      "duration": "42 hours",
+      "rating": 4.8
+    },
+    {
+      "id": 23,
+      "title": "iOS & Swift - Complete iOS App Development",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/ios-13-app-development-bootcamp/",
+      "skills": ["ios", "swift", "mobile development"],
+      "duration": "55 hours",
+      "rating": 4.8
+    },
+    {
+      "id": 24,
+      "title": "Android Development with Kotlin",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/android-kotlin-developer/",
+      "skills": ["android", "kotlin", "mobile development"],
+      "duration": "48 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 25,
+      "title": "System Design Interview Prep",
+      "platform": "Educative",
+      "link": "https://www.educative.io/courses/grokking-the-system-design-interview",
+      "skills": ["system design", "microservices", "scalability", "distributed systems"],
+      "duration": "20 hours",
+      "rating": 4.8
+    },
+    {
+      "id": 26,
+      "title": "Data Structures & Algorithms Bootcamp",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/data-structures-algorithms-python/",
+      "skills": ["data structures", "algorithms", "python", "problem solving"],
+      "duration": "35 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 27,
+      "title": "Git & GitHub Masterclass",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/git-and-github-masterclass/",
+      "skills": ["git", "github", "version control"],
+      "duration": "8 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 28,
+      "title": "Jira Fundamentals",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/jira-fundamentals/",
+      "skills": ["jira", "agile", "scrum", "project management"],
+      "duration": "4 hours",
+      "rating": 4.5
+    },
+    {
+      "id": 29,
+      "title": "GraphQL Complete Guide",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/graphql-complete-guide/",
+      "skills": ["graphql", "node.js", "react", "api design"],
+      "duration": "12 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 30,
+      "title": "Linux Administration Bootcamp",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/linux-administration-bootcamp/",
+      "skills": ["linux", "bash", "shell scripting", "unix"],
+      "duration": "15 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 31,
+      "title": "Selenium WebDriver with Python",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/selenium-webdriver-python/",
+      "skills": ["selenium", "python", "unit testing", "integration testing"],
+      "duration": "14 hours",
+      "rating": 4.5
+    },
+    {
+      "id": 32,
+      "title": "Jest - Testing JavaScript",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/jest-testing-javascript/",
+      "skills": ["jest", "javascript", "unit testing", "testing"],
+      "duration": "6 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 33,
+      "title": "FastAPI - Modern Python Web Development",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/fastapi-course/",
+      "skills": ["fastapi", "python", "rest api", "api design"],
+      "duration": "10 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 34,
+      "title": "Django for Professionals",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/django-python-advanced/",
+      "skills": ["django", "python", "sql", "rest api"],
+      "duration": "18 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 35,
+      "title": "Azure Fundamentals",
+      "platform": "Microsoft Learn",
+      "link": "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+      "skills": ["azure", "cloud computing", "devops"],
+      "duration": "40 hours",
+      "rating": 4.7
+    },
+    {
+      "id": 36,
+      "title": "Google Cloud Professional Cloud Architect",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/professional-certificates/google-cloud-architecture",
+      "skills": ["gcp", "cloud computing", "kubernetes", "devops"],
+      "duration": "4 months",
+      "rating": 4.7
+    },
+    {
+      "id": 37,
+      "title": "Prometheus & Grafana Masterclass",
+      "platform": "Udemy",
+      "link": "https://www.udemy.com/course/prometheus-grafana-masterclass/",
+      "skills": ["prometheus", "grafana", "monitoring", "devops"],
+      "duration": "8 hours",
+      "rating": 4.5
+    },
+    {
+      "id": 38,
+      "title": "Data Visualization with Python",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/learn/python-for-data-visualization",
+      "skills": ["python", "matplotlib", "seaborn", "data analysis"],
+      "duration": "15 hours",
+      "rating": 4.6
+    },
+    {
+      "id": 39,
+      "title": "Leadership and Management Certificate",
+      "platform": "Coursera",
+      "link": "https://www.coursera.org/professional-certificates/leadership-management",
+      "skills": ["leadership", "communication", "project management", "teamwork"],
+      "duration": "6 months",
+      "rating": 4.8
+    },
+    {
+      "id": 40,
+      "title": "Communication Skills for Professionals",
+      "platform": "LinkedIn Learning",
+      "link": "https://www.linkedin.com/learning/communication-skills-for-professionals",
+      "skills": ["communication", "presentation", "negotiation"],
+      "duration": "3 hours",
+      "rating": 4.5
+    }
+  ]
+}
