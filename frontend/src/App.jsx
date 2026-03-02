@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Chatbot from './components/Chatbot';
 import Landing from './pages/Landing';
 import Analysis from './pages/Analysis';
 import Dashboard from './pages/Dashboard';
@@ -12,7 +13,7 @@ import About from './pages/About';
 
 function App() {
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 dark:bg-gray-950 transition-colors duration-300">
             <Navbar />
             <main>
                 <Routes>
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/about" element={<About />} />
                 </Routes>
             </main>
+            <Chatbot />
         </div>
     );
 }

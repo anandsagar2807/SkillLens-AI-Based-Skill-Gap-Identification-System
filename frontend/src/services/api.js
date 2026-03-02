@@ -160,5 +160,58 @@ export const savePDFReport = async (analysisResults, recommendations = []) => {
   window.URL.revokeObjectURL(url);
 };
 
+/**
+ * Send chat message to AI assistant
+ * @param {string} message - User message
+ * @param {string} sessionId - Session ID for context
+ * @returns {Promise} Chat response
+ */
+export const sendChatMessage = async (message, sessionId = 'default') => {
+  const response = await api.post('/chat/message', {
+    message,
+    session_id: sessionId,
+  });
+
+  return response.data;
+};
+
+/**
+ * Get interview questions by category
+ * @param {string} category - Question category
+ * @param {number} count - Number of questions
+ * @returns {Promise} Interview questions
+ */
+export const getInterviewQuestions = async (category = 'behavioral', count = 5) => {
+  const response = await api.get('/chat/interview-questions', {
+    params: { category, count },
+  });
+
+  return response.data;
+};
+
+/**
+ * Get course recommendations
+ * @param {string} skill - Skill name
+ * @param {string} category - Course category
+ * @returns {Promise} Course recommendations
+ */
+export const getCourseRecommendations = async (skill = null, category = null) => {
+  const response = await api.get('/chat/course-recommendations', {
+    params: { skill, category },
+  });
+
+  return response.data;
+};
+
+/**
+ * Get skill information
+ * @param {string} skill - Skill name
+ * @returns {Promise} Skill information
+ */
+export const getSkillInfo = async (skill) => {
+  const response = await api.get(`/chat/skill-info/${encodeURIComponent(skill)}`);
+  return response.data;
+};
+
 // Export default api instance for custom requests
 export default api;

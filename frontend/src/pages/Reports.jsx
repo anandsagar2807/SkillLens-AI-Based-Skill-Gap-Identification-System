@@ -11,7 +11,16 @@ import {
     FaExclamationTriangle,
     FaChartBar,
     FaChartLine,
-    FaFilter
+    FaFilter,
+    FaTrophy,
+    FaFire,
+    FaStar,
+    FaRocket,
+    FaBolt,
+    FaMedal,
+    FaCrown,
+    FaGem,
+    FaAward
 } from 'react-icons/fa';
 import { useAnalysis } from '../context/AnalysisContext';
 import { savePDFReport } from '../services/api';
@@ -32,7 +41,12 @@ import {
     RadialBarChart,
     RadialBar,
     AreaChart,
-    Area
+    Area,
+    Treemap,
+    ComposedChart,
+    ScatterChart,
+    Scatter,
+    ZAxis
 } from 'recharts';
 
 const Reports = () => {
@@ -273,129 +287,381 @@ const Reports = () => {
                     </div>
                 </div>
 
-                {/* Charts Section */}
+                {/* Unified DevSkillsMatch Dashboard */}
                 {analyses.length > 0 && (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                        {/* Match Distribution Bar Chart */}
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-card p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                    Match Score Distribution
-                                </h2>
-                                <FaChartBar className="text-primary-500" />
+                    <div className="mb-8">
+                        {/* DevSkillsMatch Hero Header */}
+                        <div className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-3xl p-8 mb-6 shadow-2xl">
+                            {/* Animated Background Elements */}
+                            <div className="absolute inset-0 overflow-hidden">
+                                <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+                                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
                             </div>
-                            <ResponsiveContainer width="100%" height={250}>
-                                <BarChart data={matchDistributionData}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                                    <XAxis dataKey="range" stroke="#9ca3af" fontSize={12} />
-                                    <YAxis stroke="#9ca3af" fontSize={12} />
-                                    <Tooltip content={<CustomTooltip />} />
-                                    <Bar dataKey="count" name="Reports" radius={[4, 4, 0, 0]}>
-                                        {matchDistributionData.map((entry, index) => (
-                                            <Cell key={`cell-${index}`} fill={entry.fill} />
-                                        ))}
-                                    </Bar>
-                                </BarChart>
-                            </ResponsiveContainer>
+                            
+                            {/* Content */}
+                            <div className="relative z-10">
+                                <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                                    {/* Left: Title & Stats */}
+                                    <div className="text-center lg:text-left">
+                                        <div className="flex items-center gap-3 justify-center lg:justify-start mb-4">
+                                            <FaGem className="text-3xl text-cyan-300" />
+                                            <h2 className="text-3xl lg:text-4xl font-bold text-white">
+                                                DevSkillsMatch Dashboard
+                                            </h2>
+                                        </div>
+                                        <p className="text-white/80 text-lg mb-6">
+                                            Your comprehensive skill matching analytics at a glance
+                                        </p>
+                                        
+                                        {/* Quick Stats */}
+                                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                                            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/30">
+                                                <div className="flex items-center gap-2">
+                                                    <FaTrophy className="text-yellow-300" />
+                                                    <span className="text-white font-semibold">{avgMatch}%</span>
+                                                    <span className="text-white/70 text-sm">Avg Match</span>
+                                                </div>
+                                            </div>
+                                            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/30">
+                                                <div className="flex items-center gap-2">
+                                                    <FaFire className="text-orange-300" />
+                                                    <span className="text-white font-semibold">{totalReports}</span>
+                                                    <span className="text-white/70 text-sm">Analyses</span>
+                                                </div>
+                                            </div>
+                                            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/30">
+                                                <div className="flex items-center gap-2">
+                                                    <FaStar className="text-pink-300" />
+                                                    <span className="text-white font-semibold">{topSkillsData.length}</span>
+                                                    <span className="text-white/70 text-sm">Top Skills</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Right: Central Score Ring */}
+                                    <div className="relative">
+                                        <div className="w-48 h-48 relative">
+                                            {/* Outer Glow Ring */}
+                                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-purple-400 blur-xl opacity-50 animate-pulse"></div>
+                                            
+                                            {/* Progress Ring */}
+                                            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                                <circle
+                                                    cx="50"
+                                                    cy="50"
+                                                    r="45"
+                                                    fill="none"
+                                                    stroke="rgba(255,255,255,0.1)"
+                                                    strokeWidth="8"
+                                                />
+                                                <circle
+                                                    cx="50"
+                                                    cy="50"
+                                                    r="45"
+                                                    fill="none"
+                                                    stroke="url(#scoreGradient)"
+                                                    strokeWidth="8"
+                                                    strokeLinecap="round"
+                                                    strokeDasharray={`${(avgMatch / 100) * 283} 283`}
+                                                    className="transition-all duration-1000"
+                                                />
+                                                <defs>
+                                                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                        <stop offset="0%" stopColor="#22d3ee" />
+                                                        <stop offset="50%" stopColor="#a855f7" />
+                                                        <stop offset="100%" stopColor="#ec4899" />
+                                                    </linearGradient>
+                                                </defs>
+                                            </svg>
+                                            
+                                            {/* Center Content */}
+                                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                                <span className="text-5xl font-bold text-white">{avgMatch}</span>
+                                                <span className="text-white/70 text-sm">Match Score</span>
+                                            </div>
+                                        </div>
+                                        
+                                        {/* Floating Badges */}
+                                        <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full p-2 shadow-lg animate-bounce">
+                                            <FaMedal className="text-white text-lg" />
+                                        </div>
+                                        <div className="absolute -bottom-2 -left-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full p-2 shadow-lg animate-bounce delay-500">
+                                            <FaCrown className="text-white text-lg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Match Categories Pie Chart */}
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-card p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                    Match Categories
-                                </h2>
-                                <FaChartPie className="text-primary-500" />
-                            </div>
-                            {pieData.length > 0 ? (
-                                <ResponsiveContainer width="100%" height={250}>
-                                    <PieChart>
-                                        <Pie
-                                            data={pieData}
-                                            cx="50%"
-                                            cy="50%"
-                                            innerRadius={50}
-                                            outerRadius={90}
-                                            paddingAngle={5}
-                                            dataKey="value"
-                                        >
-                                            {pieData.map((entry, index) => (
-                                                <Cell key={`cell-${index}`} fill={entry.color} />
-                                            ))}
-                                        </Pie>
-                                        <Tooltip />
-                                        <Legend />
-                                    </PieChart>
-                                </ResponsiveContainer>
-                            ) : (
-                                <div className="h-[250px] flex items-center justify-center text-gray-500 dark:text-gray-400">
-                                    No data to display
+                        {/* Main Dashboard Grid */}
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            {/* Left Column: Match Categories & Distribution */}
+                            <div className="lg:col-span-1 space-y-6">
+                                {/* Match Categories (Pie) */}
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 overflow-hidden relative group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                                    
+                                    <div className="relative">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                                                <FaChartPie className="text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Match Categories</h3>
+                                        </div>
+                                        
+                                        {pieData.length > 0 ? (
+                                            <div className="relative">
+                                                <ResponsiveContainer width="100%" height={200}>
+                                                    <PieChart>
+                                                        <Pie
+                                                            data={pieData}
+                                                            cx="50%"
+                                                            cy="50%"
+                                                            innerRadius={45}
+                                                            outerRadius={75}
+                                                            paddingAngle={4}
+                                                            dataKey="value"
+                                                            animationBegin={0}
+                                                            animationDuration={1000}
+                                                        >
+                                                            {pieData.map((entry, index) => (
+                                                                <Cell key={`cell-${index}`} fill={entry.color} strokeWidth={2} stroke="white" />
+                                                            ))}
+                                                        </Pie>
+                                                        <Tooltip content={<CustomTooltip />} />
+                                                    </PieChart>
+                                                </ResponsiveContainer>
+                                                
+                                                {/* Legend */}
+                                                <div className="flex flex-wrap gap-3 justify-center mt-2">
+                                                    {pieData.map((item, idx) => (
+                                                        <div key={idx} className="flex items-center gap-2">
+                                                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
+                                                            <span className="text-xs text-gray-600 dark:text-gray-300">{item.name}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="h-[200px] flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                No data to display
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            )}
+
+                                {/* Score Distribution */}
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 overflow-hidden relative group">
+                                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-400/10 to-purple-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                                    
+                                    <div className="relative">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center">
+                                                <FaChartBar className="text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Score Distribution</h3>
+                                        </div>
+                                        
+                                        <ResponsiveContainer width="100%" height={180}>
+                                            <BarChart data={matchDistributionData} barCategoryGap="15%">
+                                                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+                                                <XAxis dataKey="range" stroke="#9ca3af" fontSize={10} tickLine={false} />
+                                                <YAxis stroke="#9ca3af" fontSize={10} tickLine={false} axisLine={false} />
+                                                <Tooltip content={<CustomTooltip />} />
+                                                <Bar dataKey="count" name="Reports" radius={[6, 6, 0, 0]} animationDuration={1000}>
+                                                    {matchDistributionData.map((entry, index) => (
+                                                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                                                    ))}
+                                                </Bar>
+                                            </BarChart>
+                                        </ResponsiveContainer>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Center Column: Trend Analysis */}
+                            <div className="lg:col-span-1">
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 h-full overflow-hidden relative group">
+                                    <div className="absolute top-1/2 right-0 w-40 h-40 bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                                    
+                                    <div className="relative">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                                                <FaChartLine className="text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Match Trends</h3>
+                                        </div>
+                                        
+                                        {trendData.length > 0 ? (
+                                            <ResponsiveContainer width="100%" height={350}>
+                                                <AreaChart data={trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                                                    <defs>
+                                                        <linearGradient id="colorTrendMatch" x1="0" y1="0" x2="0" y2="1">
+                                                            <stop offset="0%" stopColor="#06b6d4" stopOpacity={0.4}/>
+                                                            <stop offset="100%" stopColor="#06b6d4" stopOpacity={0}/>
+                                                        </linearGradient>
+                                                        <linearGradient id="colorTrendSkills" x1="0" y1="0" x2="0" y2="1">
+                                                            <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.4}/>
+                                                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0}/>
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+                                                    <XAxis dataKey="name" stroke="#9ca3af" fontSize={11} tickLine={false} />
+                                                    <YAxis stroke="#9ca3af" fontSize={11} tickLine={false} axisLine={false} />
+                                                    <Tooltip content={<CustomTooltip />} />
+                                                    <Area
+                                                        type="monotone"
+                                                        dataKey="match"
+                                                        stroke="#06b6d4"
+                                                        strokeWidth={3}
+                                                        fillOpacity={1}
+                                                        fill="url(#colorTrendMatch)"
+                                                        name="Match %"
+                                                    />
+                                                    <Area
+                                                        type="monotone"
+                                                        dataKey="skills"
+                                                        stroke="#8b5cf6"
+                                                        strokeWidth={3}
+                                                        fillOpacity={1}
+                                                        fill="url(#colorTrendSkills)"
+                                                        name="Skills Count"
+                                                    />
+                                                </AreaChart>
+                                            </ResponsiveContainer>
+                                        ) : (
+                                            <div className="h-[350px] flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                No trend data available
+                                            </div>
+                                        )}
+                                        
+                                        {/* Trend Indicator */}
+                                        <div className="flex items-center justify-center gap-4 mt-4">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-3 h-3 rounded-full bg-cyan-500"></div>
+                                                <span className="text-xs text-gray-600 dark:text-gray-300">Match %</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                                                <span className="text-xs text-gray-600 dark:text-gray-300">Skills Count</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Right Column: Top Matched Skills */}
+                            <div className="lg:col-span-1">
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 h-full overflow-hidden relative group">
+                                    <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                                    
+                                    <div className="relative">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                                                <FaRocket className="text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Top Matched Skills</h3>
+                                        </div>
+                                        
+                                        {topSkillsData.length > 0 ? (
+                                            <div className="space-y-3">
+                                                {topSkillsData.map((skill, index) => {
+                                                    const maxCount = topSkillsData[0]?.count || 1;
+                                                    const percentage = (skill.count / maxCount) * 100;
+                                                    const colors = [
+                                                        { from: '#f59e0b', to: '#fbbf24', icon: FaCrown },
+                                                        { from: '#9ca3af', to: '#d1d5db', icon: FaMedal },
+                                                        { from: '#b45309', to: '#d97706', icon: FaAward },
+                                                        { from: '#6366f1', to: '#818cf8', icon: FaStar },
+                                                        { from: '#8b5cf6', to: '#a78bfa', icon: FaBolt },
+                                                        { from: '#ec4899', to: '#f472b6', icon: FaGem },
+                                                        { from: '#10b981', to: '#34d399', icon: FaFire },
+                                                        { from: '#06b6d4', to: '#22d3ee', icon: FaTrophy }
+                                                    ];
+                                                    const colorConfig = colors[index] || colors[3];
+                                                    const IconComponent = colorConfig.icon;
+                                                    
+                                                    return (
+                                                        <div key={index} className="group/skill">
+                                                            <div className="flex items-center gap-3 mb-1">
+                                                                <div 
+                                                                    className="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg"
+                                                                    style={{ background: `linear-gradient(135deg, ${colorConfig.from}, ${colorConfig.to})` }}
+                                                                >
+                                                                    <IconComponent className="text-white text-sm" />
+                                                                </div>
+                                                                <div className="flex-1">
+                                                                    <div className="flex items-center justify-between mb-1">
+                                                                        <span className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate" title={skill.fullSkill}>
+                                                                            {skill.fullSkill}
+                                                                        </span>
+                                                                        <span className="text-xs font-bold text-gray-500 dark:text-gray-400">{skill.count}x</span>
+                                                                    </div>
+                                                                    <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                                                                        <div 
+                                                                            className="h-full rounded-full transition-all duration-1000 ease-out"
+                                                                            style={{ 
+                                                                                width: `${percentage}%`,
+                                                                                background: `linear-gradient(90deg, ${colorConfig.from}, ${colorConfig.to})`
+                                                                            }}
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        ) : (
+                                            <div className="h-[350px] flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                No skills data yet
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Match Trend Line Chart */}
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-card p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                    Match Trend (Recent Analyses)
-                                </h2>
-                                <FaChartLine className="text-primary-500" />
+                        {/* Bottom Stats Banner */}
+                        <div className="mt-6 bg-gradient-to-r from-gray-900 via-indigo-900 to-purple-900 rounded-2xl p-6 relative overflow-hidden">
+                            {/* Decorative Elements */}
+                            <div className="absolute inset-0 overflow-hidden">
+                                <div className="absolute top-0 left-1/4 w-2 h-full bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent"></div>
+                                <div className="absolute top-0 right-1/3 w-2 h-full bg-gradient-to-b from-transparent via-purple-400/20 to-transparent"></div>
                             </div>
-                            {trendData.length > 0 ? (
-                                <ResponsiveContainer width="100%" height={250}>
-                                    <AreaChart data={trendData}>
-                                        <defs>
-                                            <linearGradient id="colorMatch" x1="0" y1="0" x2="0" y2="1">
-                                                <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3}/>
-                                                <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
-                                            </linearGradient>
-                                        </defs>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                                        <XAxis dataKey="name" stroke="#9ca3af" />
-                                        <YAxis stroke="#9ca3af" />
-                                        <Tooltip content={<CustomTooltip />} />
-                                        <Area
-                                            type="monotone"
-                                            dataKey="match"
-                                            stroke="#6366f1"
-                                            strokeWidth={2}
-                                            fillOpacity={1}
-                                            fill="url(#colorMatch)"
-                                            name="Match %"
-                                        />
-                                    </AreaChart>
-                                </ResponsiveContainer>
-                            ) : (
-                                <div className="h-[250px] flex items-center justify-center text-gray-500 dark:text-gray-400">
-                                    No data to display
+                            
+                            <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center">
+                                        <FaBolt className="text-white text-xl" />
+                                    </div>
+                                    <div>
+                                        <p className="text-white/60 text-sm">Your Skill Journey</p>
+                                        <p className="text-white font-bold text-lg">
+                                            {analyses.filter(r => (r.match_percentage || 0) >= 70).length} High Matches • {' '}
+                                            {topSkillsData.reduce((acc, s) => acc + s.count, 0)} Total Skill Matches
+                                        </p>
+                                    </div>
                                 </div>
-                            )}
-                        </div>
-
-                        {/* Top Skills Bar Chart */}
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-card p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                    Top Matched Skills
-                                </h2>
-                                <FaFilter className="text-primary-500" />
+                                
+                                <div className="flex items-center gap-6">
+                                    <div className="text-center">
+                                        <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                                            {analyses.filter(r => (r.match_percentage || 0) >= 70).length}
+                                        </p>
+                                        <p className="text-white/60 text-xs">Excellent Matches</p>
+                                    </div>
+                                    <div className="w-px h-10 bg-white/20"></div>
+                                    <div className="text-center">
+                                        <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                                            {topSkillsData.length > 0 ? topSkillsData[0]?.fullSkill : 'N/A'}
+                                        </p>
+                                        <p className="text-white/60 text-xs">Top Skill</p>
+                                    </div>
+                                </div>
                             </div>
-                            {topSkillsData.length > 0 ? (
-                                <ResponsiveContainer width="100%" height={250}>
-                                    <BarChart data={topSkillsData} layout="vertical">
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                                        <XAxis type="number" stroke="#9ca3af" />
-                                        <YAxis dataKey="skill" type="category" stroke="#9ca3af" width={80} fontSize={11} />
-                                        <Tooltip content={<CustomTooltip />} />
-                                        <Bar dataKey="count" name="Occurrences" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
-                                    </BarChart>
-                                </ResponsiveContainer>
-                            ) : (
-                                <div className="h-[250px] flex items-center justify-center text-gray-500 dark:text-gray-400">
-                                    No skills data yet
-                                </div>
-                            )}
                         </div>
                     </div>
                 )}

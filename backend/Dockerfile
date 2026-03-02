@@ -22,17 +22,14 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Download NLTK data during build
-RUN python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords')"
-
 # Copy application code
 COPY . .
 
 # Create necessary directories
 RUN mkdir -p /app/ml_model
 
-# Train the ML model if not present
-RUN python -c "from ml_model.train_model import train_model, save_model; model = train_model(); save_model(model)"
+# Run setup script to download NLTK data and train ML model
+RUN python setup.py
 
 # Expose port
 EXPOSE 8000

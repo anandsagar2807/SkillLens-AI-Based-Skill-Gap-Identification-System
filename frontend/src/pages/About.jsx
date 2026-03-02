@@ -9,54 +9,68 @@ import {
     FaCode,
     FaLaptopCode,
     FaServer,
-    FaDatabase
+    FaRobot,
+    FaComments,
+    FaStar,
+    FaUsers,
+    FaCrown,
+    FaLightbulb,
+    FaGem
 } from 'react-icons/fa';
 
 const About = () => {
     const teamMembers = [
         {
-            name: 'G. Anand Sagar',
-            initials: 'GAS',
+            name: 'G.Anand Sagar',
+            initials: 'ASG',
+            emoji: '👨‍💻',
             role: 'Full Stack Developer',
             bio: 'Passionate about building scalable web applications and AI-driven solutions.',
             github: 'https://github.com',
             linkedin: 'https://linkedin.com',
-            color: 'from-blue-500 to-cyan-500'
+            color: 'from-blue-500 to-cyan-500',
+            isLead: true
         },
         {
-            name: 'E. Akhilesh',
+            name: 'E.Akhilesh',
             initials: 'EA',
+            emoji: '🎨',
             role: 'Full Stack Developer',
             bio: 'Expert in frontend technologies and creating seamless user experiences.',
             github: 'https://github.com',
             linkedin: 'https://linkedin.com',
-            color: 'from-purple-500 to-pink-500'
+            color: 'from-purple-500 to-pink-500',
+            isLead: false
         },
         {
-            name: 'G. Bhoomesh',
+            name: 'G.Bhoomesh',
             initials: 'GB',
+            emoji: '⚙️',
             role: 'Full Stack Developer',
             bio: 'Specialized in backend systems and cloud infrastructure.',
             github: 'https://github.com',
             linkedin: 'https://linkedin.com',
-            color: 'from-orange-500 to-red-500'
+            color: 'from-orange-500 to-red-500',
+            isLead: false
         },
         {
-            name: 'T. Shanker Singh',
+            name: 'T.Shanker Singh',
             initials: 'TSS',
+            emoji: '🗄️',
             role: 'Full Stack Developer',
             bio: 'Focused on database architecture and API development.',
             github: 'https://github.com',
             linkedin: 'https://linkedin.com',
-            color: 'from-green-500 to-teal-500'
+            color: 'from-green-500 to-teal-500',
+            isLead: false
         }
     ];
 
     const skills = [
         { icon: FaCode, label: 'Frontend', items: ['React', 'Vue', 'TypeScript'] },
         { icon: FaServer, label: 'Backend', items: ['Node.js', 'Python', 'FastAPI'] },
-        { icon: FaDatabase, label: 'Database', items: ['PostgreSQL', 'MongoDB', 'Redis'] },
-        { icon: FaLaptopCode, label: 'DevOps', items: ['Docker', 'AWS', 'CI/CD'] }
+        { icon: FaLaptopCode, label: 'DevOps', items: ['Docker', 'AWS', 'CI/CD'] },
+        { icon: FaRobot, label: 'AI Chatbot', items: ['GPT Integration', 'NLP', 'Career Guidance'] }
     ];
 
     return (
@@ -70,53 +84,50 @@ const About = () => {
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Hero Section */}
-                <div className="text-center mb-20 pt-8">
-                    {/* Logo */}
-                    <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-primary-500 via-secondary-500 to-accent-500 rounded-3xl mb-8 shadow-2xl shadow-primary-500/25 transform hover:scale-105 transition-transform duration-300">
-                        <span className="text-4xl font-bold text-white">S</span>
-                    </div>
-
-                    {/* Title */}
-                    <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-secondary-500 to-accent-500">
-                            Meet Our Team
-                        </span>
+                <div className="text-center mb-16 pt-8">
+                    {/* Simple Header */}
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Meet our Team
                     </h1>
 
                     {/* Subtitle */}
-                    <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Building AI-powered career solutions with innovation and passion.
+                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        A dedicated team of developers committed to transforming how professionals navigate their career paths.
                     </p>
-
-                    {/* Decorative Line */}
-                    <div className="mt-8 flex items-center justify-center gap-2">
-                        <div className="w-12 h-1 bg-gradient-to-r from-transparent to-primary-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full"></div>
-                        <div className="w-12 h-1 bg-gradient-to-l from-transparent to-secondary-500 rounded-full"></div>
-                    </div>
                 </div>
 
                 {/* Team Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
                     {teamMembers.map((member, index) => (
-                        <div key={index} className="group relative">
+                        <div key={index} className={`group relative ${member.isLead ? 'lg:scale-105 z-10' : ''}`}>
                             {/* Card */}
-                            <div className="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-3xl p-8 border border-white/50 dark:border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
-                                {/* Gradient Border Effect */}
-                                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl`}></div>
+                            <div className={`relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-3xl p-8 border border-white/50 dark:border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] ${member.isLead ? 'ring-2 ring-amber-400/50 dark:ring-amber-500/50' : ''}`}>
+                                {/* Emoji Icon Above Avatar */}
+                                <div className="text-center mb-3">
+                                    <span className={`inline-block ${member.isLead ? 'text-5xl' : 'text-4xl'} transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300`}>
+                                        {member.emoji}
+                                    </span>
+                                </div>
 
                                 {/* Avatar */}
                                 <div className="relative mb-6">
-                                    <div className={`w-28 h-28 mx-auto rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-3xl font-bold shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                                    <div className={`${member.isLead ? 'w-36 h-36' : 'w-28 h-28'} mx-auto rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white ${member.isLead ? 'text-4xl' : 'text-3xl'} font-bold shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                                         {member.initials}
                                     </div>
                                     {/* Status Indicator */}
                                     <div className="absolute bottom-2 right-1/2 transform translate-x-8 w-5 h-5 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                                    
+                                    {/* Star decoration for lead */}
+                                    {member.isLead && (
+                                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                                            <FaStar className="text-white text-sm" />
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Info */}
                                 <div className="text-center">
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-600 group-hover:to-secondary-500 transition-all duration-300">
+                                    <h3 className={`font-bold text-gray-900 dark:text-white mb-2 ${member.isLead ? 'text-2xl' : 'text-xl'}`}>
                                         {member.name}
                                     </h3>
                                     <div className={`inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r ${member.color} text-white text-sm font-medium mb-4 shadow-md`}>
@@ -134,17 +145,17 @@ const About = () => {
                                         href={member.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-11 h-11 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-900 dark:hover:bg-gray-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-6"
+                                        className={`${member.isLead ? 'w-12 h-12' : 'w-11 h-11'} bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-900 dark:hover:bg-gray-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-6`}
                                     >
-                                        <FaGithub className="text-lg" />
+                                        <FaGithub className={`${member.isLead ? 'text-xl' : 'text-lg'}`} />
                                     </a>
                                     <a
                                         href={member.linkedin}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-11 h-11 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-6"
+                                        className={`${member.isLead ? 'w-12 h-12' : 'w-11 h-11'} bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-6`}
                                     >
-                                        <FaLinkedin className="text-lg" />
+                                        <FaLinkedin className={`${member.isLead ? 'text-xl' : 'text-lg'}`} />
                                     </a>
                                 </div>
 
@@ -182,6 +193,47 @@ const About = () => {
                                 </div>
                             );
                         })}
+                    </div>
+                </div>
+
+                {/* AI Chatbot Features Section */}
+                <div className="mb-20">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">AI-Assisted Job Chatbot</span>
+                        </h2>
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Our intelligent chatbot is here to guide you through your career journey with personalized assistance.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg rounded-2xl p-6 border border-white/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
+                            <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center text-white mb-4">
+                                <FaRobot className="text-2xl" />
+                            </div>
+                            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Smart Career Guidance</h3>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm">
+                                Get personalized career advice based on your skills, experience, and goals. Our AI understands your unique career path.
+                            </p>
+                        </div>
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg rounded-2xl p-6 border border-white/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
+                            <div className="w-14 h-14 bg-gradient-to-br from-secondary-500 to-accent-500 rounded-xl flex items-center justify-center text-white mb-4">
+                                <FaComments className="text-2xl" />
+                            </div>
+                            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">24/7 Chat Assistance</h3>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm">
+                                Ask questions anytime about skill analysis, job recommendations, interview prep, and career roadmaps. Always available to help.
+                            </p>
+                        </div>
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg rounded-2xl p-6 border border-white/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
+                            <div className="w-14 h-14 bg-gradient-to-br from-accent-500 to-primary-500 rounded-xl flex items-center justify-center text-white mb-4">
+                                <FaBriefcase className="text-2xl" />
+                            </div>
+                            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Job Matching</h3>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm">
+                                Describe your ideal job and let our AI find the best matches. Get insights on required skills and how to bridge the gap.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
